@@ -1,0 +1,15 @@
+Java.perform(function () {
+    Java.enumerateLoadedClasses({
+        onMatch: function (className) {
+            if (className.indexOf("MainActivity") !== -1) {
+                console.log("[FOUND] " + className);
+            }
+            if (className.indexOf("Nfwq") !== -1) {
+                console.log("[FOUND] " + className);
+            }
+        },
+        onComplete: function () {
+            console.log("✅ Done searching classes.");
+        }
+    });
+});

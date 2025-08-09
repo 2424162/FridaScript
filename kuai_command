@@ -1,0 +1,79 @@
+function main(){
+    Java.perform(function(){
+        Java.enumerateClassLoaders({
+            onMatch : function(loader){
+                try {
+                    // loadClass or findClass
+                    if (loader.loadClass("com.kuaishou.android.security.internal.plugin.k")){
+                        Java.classFactory.loader = loader;
+                        var k = Java.use("com.kuaishou.android.security.internal.plugin.k");
+                        console.log("success hook it :", k);
+                  
+                        k["a"].implementation = function (i4, objArr) {
+                            console.log(`k.a is called: i4=${i4}, objArr=${objArr}`);
+                                    if (objArr != null) {
+            console.log("objArr.length = " + objArr.length);
+            for (var i = 0; i < objArr.length; i++) {
+                var item = objArr[i];
+                if (item !== null) {
+                    try {
+                        if(i ==0){
+                            var line = "";
+                            var ArrayClz = Java.use("java.lang.reflect.Array");
+                            var len = ArrayClz.getLength(item);
+                            console.log("元素"+len)
+                            for(let i=0;i!=len;i++){
+                                let str2 = ArrayClz.get(item,i).toString();
+                                line +=   str2 + " ";
+                            }
+                            console.log(line)
+
+                        }
+                        var className = item.getClass().getName();
+                        var content = item.toString();
+                        console.log("objArr[" + i + "] (" + className + "): " + content);
+                    } catch (e) {
+                        console.log("objArr[" + i + "]: [Error accessing item] " + e);
+                    }
+                } else {
+                    console.log("objArr[" + i + "] is null");
+                }
+            }
+        } else {
+            console.log("objArr is null");
+    }   
+                            let result = this["a"](i4, objArr);
+                            console.log(`k.a result=${result}`);
+                            return result;
+};
+                        // something to do;
+                    }
+                } catch (error) {
+                    // pass
+                }
+            },
+            
+            onComplete: function () {
+                console.log("complete !!! ")
+            }
+        })
+    })
+
+        var base = Module.findBaseAddress("libkwsgmain.so");
+    if (base) {
+        var addr_doCommandNative = base.add(0x40cd4);
+        Interceptor.attach(addr_doCommandNative, {
+            onEnter: function (args) {
+                
+                console.log("doCommandNative() args = "+" |" +args[0]+" |"+args[1]+"|"+ args[2]+"|"+args[3]+"|"+ args[4]+"|"+args[5]+"|"+ args[6]+"|"+args[7]+"|"+ args[8]+"|"+args[9])
+            }, onLeave: function (retval) {
+                var env = Java.vm.getEnv()
+                var str = env.getStringUtfChars(retval,null).readCString()
+                console.log("result:"+str);
+                console.log("Return value as string: " + retval);
+            }
+        })
+    }
+}
+
+setImmediate(main);

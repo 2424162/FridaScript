@@ -1,0 +1,5 @@
+com.ssjj.fnsdk.lib.impl.ac 回调
+
+EventUtils.logPayEvent("catappult_pay_finish", "Pay successful");
+
+ac.onCallback is called: i=0, str=repleinshOrder, ssjjFNParams=[pay_type=1, callbackInfo=mrtgdus_cata_1_1753355414098_SSJJ_MROM80173_9389016_SSJJ_29d445700410140355136636629ba55e_SSJJ_35860_SSJJ_11202658322154, purchase_token=catappult.inapp.purchase.6TKCQENQOZA4BLEL, productId=mrtgdus_cata_1, consume_listener=com.ssjj.fnsdk.tool.catappult.core.CatappultPay$10@432d1b2]

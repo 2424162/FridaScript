@@ -1,0 +1,32 @@
+// 假设目标使用了标准 Lua 5.1/5.2/5.3
+const base = Module.findBaseAddress("liblua.so");
+
+const pcall = Module.findExportByName("liblua.so", "lua_pcall");
+
+Interceptor.attach(pcall, {
+    onEnter(args) {
+        this.L = args[0];  // lua_State*
+        console.log("lua_pcall called");
+
+        // Optionally, dump current stack
+        printLuaStack(this.L);
+    },
+    onLeave(retval) {
+        console.log("lua_pcall returned:", retval);
+    }
+});
+
+// 栈打印函数（Lua 5.1+）
+function printLuaStack(L) {
+    const lua_gettop = new NativeFunction(Module.getExportByName("liblua.so", "lua_gettop"), 'int', ['pointer']);
+    const lua_tostring = new NativeFunction(Module.getExportByName("liblua.so", "lua_tostring"), 'pointer', ['pointer', 'int']);
+
+    const top = lua_gettop(L);
+    console.log("Lua stack size:", top);
+    for (let i = 1; i <= top; i++) {
+        const strPtr = lua_tostring(L, i);
+        if (!strPtr.isNull()) {
+            console.log(`Arg ${i}: ` + Memory.readUtf8String(strPtr));
+        }
+    }
+}

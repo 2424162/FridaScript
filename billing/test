@@ -1,0 +1,28 @@
+
+{
+    "timestamp": 175059961728,
+    "key_enable_back_webview": {
+        "data": true
+    },
+    "key_webview_replace_pkg": {
+        "data": true
+    },
+    "key_webview_pkg_white_list_new": {
+        "data": "[{'packageName':'com.instagram.android','weight':100},{'packageName':'com.pinterest','weight':100},{'packageName':'com.facebook.katana','weight':100},{'packageName':'com.spotify.music','weight':50},{'packageName':'com.linkedin.android','weight':1},{'packageName':'com.truecaller','weight':1},{'packageName':'cn.wps.moffice_eng','weight':1},{'packageName':'com.phonepe.app','weight':1},{'packageName':'com.snapchat.android','weight':20},{'packageName':'com.zhiliaoapp.musically','weight':20},{'packageName':'com.kwai.video','weight':20}]"
+    },
+    "back_web_config": {
+        "data": "{\"sortType\":1,\"detail\":[ {\"hourTimes\":3,\"dayTimes\":72,\"url\":\"https://nds.uvthe.com\"}, {\"hourTimes\":3,\"dayTimes\":72,\"url\":\"https://ppg.quickshipin.com\"}, {\"hourTimes\":3,\"dayTimes\":72,\"url\":\"https://interview.quickshipin.com\"},  {\"hourTimes\":3,\"dayTimes\":24,\"url\":\"https://snake.uvthe.com/index1.html\"}, {\"hourTimes\":3,\"dayTimes\":24,\"url\":\"https://parrot.uvthe.com/index1.html\"}, {\"hourTimes\":3,\"dayTimes\":24,\"url\":\"https://chicken.uvthe.com/index1.html\"}, {\"hourTimes\":3,\"dayTimes\":24,\"url\":\"https://frog.uvthe.com/index1.html\"}, {\"hourTimes\":3,\"dayTimes\":24,\"url\":\"https://lizard.uvthe.com/index1.html\"}, {\"hourTimes\":3,\"dayTimes\":72,\"url\":\"https://ears.uvthe.com\"},{\"hourTimes\":3,\"dayTimes\":72,\"url\":\"https://adcd.uvthe.com\"},{\"hourTimes\":3,\"dayTimes\":72,\"url\":\"https://webv.uvthe.com\"},{\"hourTimes\":2,\"dayTimes\":72,\"url\":\"https://atiangame.com\"},{\"hourTimes\":2,\"dayTimes\":72,\"url\":\"https://upalg.com\"}, {\"hourTimes\":3,\"dayTimes\":72,\"url\":\"https://biupagames.com\"},  {\"hourTimes\":3,\"dayTimes\":72,\"url\":\"https://happiertime.com\"}, {\"hourTimes\":3,\"dayTimes\":72,\"url\":\"https://drazzlegame.com\"}, {\"hourTimes\":2,\"dayTimes\":72,\"url\":\"https://100kk.vip\"},{\"hourTimes\":1,\"dayTimes\":72,\"url\":\"https://ngame.uvthe.com\"}],\"version\":\"d_9.6.5_77\"}"
+    },
+    "adjust_channel": {
+        "data": "Xiaomi Global,Organ2ic"
+    },
+    "temp_adjust_collect_switch": {
+        "data": true
+    },
+    "xiaomi_review_switch": {
+        "data": "close" //open 是审核模式A面
+    },
+    "telegram_set": {
+        "data": "{\"img\": \"https://insta.cyou/resource/img/telegram.png\",\"link\": \"https://t.me/insta202512\"}"
+    }
+}
