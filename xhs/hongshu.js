@@ -1,13 +1,4 @@
-Interceptor.attach(Module.findExportByName(null, "android_dlopen_ext"), {
-    onEnter: function(args) {
-        var soName = ptr(args[0]).readCString();
-        console.log(soName);
-        if(soName.includes("libmsaoaidsec.so")) {
-            console.log("Blocking:", soName);
-            args[0] = ptr(0);
-        }
-    }
-});
+
 
 console.log("kaishi");
 
@@ -43,7 +34,7 @@ Java.perform(function () {
     StringClass.length.implementation = function () {
         const result = this.length();
         let this_o = this.toString()
-        if(this_o.indexOf("i/sns/v5/note/comment/list")==-1){
+                if(result< 5){
             return result;
         }
         if(old_string != this_o){
@@ -63,11 +54,11 @@ Java.perform(function () {
         const result = this.length();
 
         let this_b = this.toString()
-        if(true){
+        if(result< 5){
             return result;
         }
         if(old_stringbuilder != this_b){
-            console.log('    Value2: ' + this_b+'    Length: ' + result);
+            console.log('    Value: ' + this_b+'    Length: ' + result);
         }
         old_stringbuilder = this_b;
         
