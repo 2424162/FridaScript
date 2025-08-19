@@ -32,24 +32,9 @@ Java.perform(function () {
         return value;
     };
 
-    var JSONObject = Java.use("org.json.JSONObject");
-    
 
-    
-    // Hook put 方法
-    JSONObject.put.overload('java.lang.String', 'java.lang.Object').implementation = function (key, value) {
-        console.log("JSONObject put: key = " + key + ", value = " + value);
-        return this.put(key, value);  // 调用原始方法
-    };
 
-    // Hook get 方法
-    JSONObject.get.overload('java.lang.String').implementation = function (key) {
-        var value = this.get(key);
-        console.log("JSONObject get: key = " + key + ", value = " + value);
-        return value;
-    };
-
-    var ArrayList = Java.use("java.util.ArrayList");
+    var ArrayList = Java.use("java.util.ArrayList")
     
 
 

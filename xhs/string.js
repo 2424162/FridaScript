@@ -16,9 +16,9 @@ Interceptor.attach(Module.findExportByName(null, "android_dlopen_ext"), {
         }
     }
 });
-Java.perform(function () {
+Java.perform( async function () {
 
-    
+      //  await sleep(2000);
 
     // 打印调用堆栈的辅助函数
     function printStackTrace() {
@@ -35,13 +35,16 @@ Java.perform(function () {
     StringClass.length.implementation = function () {
         const result = this.length();
         let this_o = this.toString()
-                if(result< 5){
+                if(result< 10){
             return result;
         }
         if(old_string != this_o){
             console.log('    Value: ' + this_o+'    Length: ' + result);
         }
         old_string = this_o;
+        if(this_o.indexOf("哈哈")!==-1){
+            printStackTrace() 
+        }
         
        // console.log('\n[+] java.lang.String.length() called');
 
